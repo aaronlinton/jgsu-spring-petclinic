@@ -5,18 +5,18 @@ pipeline {
             steps {
                 sh './mvnw compile'
                 sh './mvnw package'
-                archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
             }
         }
         stage('Test') {
             steps {
                 sh './mvnw test'
             }
-//            post {
-//                always {
-//                    junit 'target/surefire-reports/*.xml'
-//                }
-//            }
+        }
+    }
+    post {
+        success {
+            junit '**/target/surfire-reports/TEST-*.xml'
+            archiveArtifacts artifacts: 'target/*.jar'
         }
     }
 }
