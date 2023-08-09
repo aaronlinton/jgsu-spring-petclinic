@@ -7,8 +7,8 @@ pipeline {
             }
             post {
                 success {
-                    junit 'target/surfire-reports/*.xml'
-                    archiveArtifacts artifacts: 'target/*.jar'
+                    junit '**/target/surfire-reports/*.xml'
+                    archiveArtifacts 'target/*.jar'
                 }
             }
         }
