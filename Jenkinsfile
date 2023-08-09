@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh './mvnw compile'
                 sh './mvnw package'
+                archiveArtifacts artifacts: 'target/*.jar', followSymlinks: false
             }
         }
         stage('Test') {
