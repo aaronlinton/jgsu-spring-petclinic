@@ -11,11 +11,11 @@ pipeline {
             steps {
                 sh './mvnw test'
             }
-            post {
-                always {
-                    junit 'target/surefire-reports/*.xml'
-                }
-            }
+//            post {
+//                always {
+//                    junit 'target/surefire-reports/*.xml'
+//                }
+//            }
         }
     }
 }
